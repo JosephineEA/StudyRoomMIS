@@ -1,0 +1,62 @@
+/* 去除常见标签默认的margin和padding */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+dl,
+dt,
+dd,
+input{
+    margin: 0;
+    padding:0;
+
+}
+/* 设置网页的统一字体大小，行高，字体系列相关属性 */
+body{
+    font: 16px/1.5 "Helvetica Neue",Helvetica Arial,"Microsoft Yahei",
+    "Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei", sans-serif;
+    color: black;
+}
+/* 去除列表默认样式 */
+ul,
+ol{
+    list-style: none;
+}
+/* 去除默认倾斜效果 */
+em，
+i{
+    font-style: normal;
+}
+/* 去除a默认下划线 */
+a{
+    text-decoration: none;
+    color: black;
+}
+img{
+    vertical-align: middle;
+}
+input{
+    border: none;
+    outline: none;
+    color: black;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.clearfix::before,
+.clearfix::after {
+content: "";
+display: table;
+}
+.clearfix::after{
+    clear:both;
+}
