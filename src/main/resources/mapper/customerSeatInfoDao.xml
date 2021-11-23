@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="team.mis.study.dao.CustomerSeatInfoDao">
+
+    <!-- 假设customerSeatInfo独立建表，可能要改 -->
+    <update id="add" parameterType="CustomerSeatInfo">
+        insert into customerSeatInfo (userid, seatid, orderbegintime, orderendtime, usebegintime, useendtime) values (#{userId}, #{seatId}, #{orderBeginTime}, #{orderEndTime}, #{useBeginTime}, #{useEndTime})
+    </update>
+
+    <select id="findByUser" parameterType="User" resultType="CustomerSeatInfo">
+        select * from customerseatinfo where userId=#{userId}
+    </select>
+
+    <select id="findByPk" parameterType="string" resultType="CustomerSeatInfo">
+        select * from customerseatinfo where id=#{id}
+    </select>
+
+    <select id="findAll" resultType="CustomerSeatInfo">
+        select * from customerseatinfo
+    </select>
+
+    <update id="deleteByPk" parameterType="string">
+        delete from customerseatinfo where id=#{id}
+    </update>
+
+    <update id="updateUseBeginTime" parameterType="CustomerSeatInfo">
+        update customerSeatInfo set useBeginTime=#{useBeginTime} where id=#{id}
+    </update>
+
+    <update id="updateUseEndTime" parameterType="CustomerSeatInfo">
+        update customerseatinfo set useEndTime=#{useEndTime} where id=#{id}
+    </update>
+</mapper>

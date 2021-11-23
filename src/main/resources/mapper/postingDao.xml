@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="team.mis.study.dao.PostingDao">
+    <select id="findAll" resultType="Posting">
+        select * from posting
+    </select>
+
+    <update id="add" parameterType="Posting">
+        insert into posting (userId, title, content, time) values (#{userId}, #{title}, #{content}, #{time})
+    </update>
+
+    <select id="findByPk" parameterType="string" resultType="Posting">
+        select * from posting where id=#{id}
+    </select>
+
+    <update id="deleteByPk" parameterType="string">
+        delete from posting where id=#{id}
+    </update>
+</mapper>

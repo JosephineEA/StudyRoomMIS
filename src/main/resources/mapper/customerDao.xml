@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="team.mis.study.dao.CustomerDao">
+
+    <select id="findByUser" parameterType="User" resultType="Customer">
+        select * from customer where userId=#{userId}
+    </select>
+
+    <update id="updateMoney" parameterType="Customer">
+        update customer set money=#{money} where userId=#{userId}
+    </update>
+
+    <update id="add" parameterType="Customer">
+        insert into customer values (#{userId}, #{roomId}, #{money}, #{violationCount})
+    </update>
+
+    <select id="findAll" resultType="Customer">
+        select * from customer
+    </select>
+
+    <update id="updateViolationCount" parameterType="Customer">
+        update customer set ViolationCount=#{violationCount} where userId=#{userId}
+    </update>
+</mapper>

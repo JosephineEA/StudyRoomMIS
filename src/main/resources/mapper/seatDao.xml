@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="team.mis.study.dao.SeatDao">
+
+    <!--
+    <select id="getOccupiedSeatFromBeginToEnd" parameterType="map" resultType="Seat">
+        select * from seat where id in
+                                 (select seatId from customerSeatInfo
+                                  where (#{beginTime} &lt; orderBeginTime and #{endTime} &gt; orderBeginTime) or
+                                        (#{endTime} &gt; orderEndTime and #{beginTime} &lt; orderBeginTime))
+    </select>-->
+<!--
+    <select id="getOccupiedSeatFromBeginToEnd" parameterType="map" resultType="Seat">
+        select * from seat where id in (
+            select seatid from customerSeatinfo
+            where orderbegintime between #{begintime} and #{endtime}
+               or orderendtime between #{begintime} and #{endtime});
+    </select>
+
+    <select id="getOccupiedSeatFromBeginToEnd" parameterType="map" resultType="Seat">
+        select * from seat where id in (
+            select seatid from customerSeatinfo
+            where orderbegintime between "2021-09-12 08:00" and "2021-09-12 21:00"
+               or orderendtime between "2021-09-12 08:00" and "2021-09-12 21:00")
+    </select>
+-->
+    <select id="getOccupiedSeatFromBeginToEnd" resultType="Seat">
+        select * from seat where id in (
+            select seatid from customerSeatinfo
+            where orderbegintime between #{beginTime} and #{endTime}
+               or orderendtime between #{beginTime} and #{endTime});
+    </select>
+
+    <select id="findAll" resultType="Seat">
+        select * from seat
+    </select>
+</mapper>

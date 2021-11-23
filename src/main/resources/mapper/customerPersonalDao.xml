@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="team.mis.study.dao.CustomerPersonalDao">
+
+    <!-- 假设customerSeatInfo独立建表，可能要改 -->
+    <update id="add" parameterType="CustomerPersonal">
+        insert into customerPersonal values (#{userId}, #{name}, #{birthday}, #{sex}, #{job}, #{phone}, #{email})
+    </update>
+</mapper>

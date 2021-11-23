@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="team.mis.study.dao.ReplyingDao">
+    <update id="add" parameterType="Replying">
+        insert into replying (postingId, userId, content, time) values ( #{postingId},  #{userId}, #{content}, #{time})
+    </update>
+
+    <select id="findByPosting" parameterType="Posting" resultType="Replying">
+        select * from replying where postingId=#{id}
+    </select>
+
+    <update id="deleteByPostingId" parameterType="string">
+        delete from replying where postingId=#{postingId}
+    </update>
+</mapper>

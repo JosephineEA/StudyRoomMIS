@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="team.mis.study.dao.CustomerFinanceDao">
+    <update id="add" parameterType="CustomerFinance">
+        insert into customerFinance (userId, money, time, judgeIn, note) values (#{userId}, #{money}, #{time},  #{judgeIn},  #{note})
+    </update>
+
+    <select id="findByUser" parameterType="User" resultType="CustomerFinance">
+        select * from customerfinance where userId=#{userId}
+    </select>
+</mapper>
